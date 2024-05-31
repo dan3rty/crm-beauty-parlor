@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000000;
+    font-family: Helvetica, sans-serif;
+}
+
+.header-container {
+    display: flex;
+}
+
+.header-logo-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 100px;
+}
+
+.navigation-menu {
+    margin-left: 200px;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 300px;
+}
+
+.navigation-menu-link {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 30px;
+}
+
+.barbers-container, .clients-container {
+    width: 58%;
+    background-color: #3a2f3f;
+    border: 5px solid #9577a3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.barbers-list-title-container, .clients-title-container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 150px 20px;
+}
+
+.barbers-title, .clients-title {
+    padding-top: 8px;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.button-new {
+    width: 44px;
+    height: 44px;
+}
+
+.barber-container, .client-container {
+    width: 90%;
+    height: 70px;
+    border: 3px solid #FFFFFF;
+    background-color: #000000;
+    margin-bottom: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barber-link, .client-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+}
+
+.barber-container-text, .client-container-text {
+    font-size: 30px;
+    color: #FFFFFF;
+    margin-left: 30px;
+}
+
+.barber-button-delete {
+    margin-right: 44px;
+}
+
+.barber-info-container {
+    width: 58%;
+    background-color: #3a2f3f;
+    border: 5px solid #9577a3;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.barbers-title-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 150px 0;
+}
+
+.barbers-title {
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.button-new {
+    width: 44px;
+    height: 44px;
+}
+
+.barber-container-title {
+    color: #FFFFFF;
+    font-size: 30px;
+    margin: 30px 30px 30px;
+}
+
+.form-input {
+    background-color: #000000;
+    color: #FFFFFF;
+    height: 44px;
+    width: 300px;
+    border: 3px solid #FFFFFF;
+    font-size: 30px;
+}
+
+.form-label {
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.form {
+    display: flex;
+}
+
+.form-fields-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    gap: 40px;
+    margin: 0 30px 30px;
+    height: 60%;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-button {
+    height: 60px;
+    margin-top: 250px;
+    margin-bottom: 30px;
+    margin-left: 130px;
+    cursor: pointer;
+}
+
+.barber-date {
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.barber-dates-container {
+    margin-left: 100px;
+}
+
+.barber-date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barber-date-add-link {
+    margin-right: 100px;
+}
+
+.appointment-container {
+    width: 90%;
+    height: 70px;
+    border: 3px solid #FFFFFF;
+    background-color: #000000;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.appointment-info-container {
+    width: 30%;
+    background-color: #3a2f3f;
+    border: 5px solid #9577a3;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.appointment-container-title {
+    color: #FFFFFF;
+    font-size: 30px;
+    margin: 30px 30px 30px;
+}
+
+.appointment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appointment-form-fields-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 40px;
+    margin: 0 30px 30px;
+    height: 60%;
+}
+
+.appointment-form-field {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.appointment-form-button {
+    height: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 380px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.form-input {
+    background-color: #000000;
+    color: #FFFFFF;
+    height: 44px;
+    width: 350px;
+    border: 3px solid #FFFFFF;
+    font-size: 30px;
+}
+
+.form-label {
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(255, 255, 255, 0);
+    opacity: 1;
+    display: block;
+    background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}

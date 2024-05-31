@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  crm-app:
+    container_name: crm-app
+    build: $PWD/docker/image
+    command:
+      - /var/www/docker/docker-entrypoint
+    environment:
+      # Параметры приложения
+      - APP_ENV=dev
+      - APP_DATABASE_DSN=mysql:dbname=crm-beauty-parlor;host=crm-db
+      - APP_DATABASE_USER=crm-admin
+      - APP_DATABASE_PASSWORD=12345Q
+      # Параметры скрипта docker-entrypoint
+      - USER_ID=${USER_ID:-1000}
+      - USER_NAME=$USER
+      # Параметры расширения XDebug
+      - XDEBUG_MODE=debug
+      - XDEBUG_CONFIG="idekey=123"
+      - PHP_IDE_CONFIG=serverName=localhost
+    working_dir: /var/www
+    volumes:
+      - $PWD/:/var/www
+      - $PWD/docker/config/nginx.conf.d/:/etc/nginx/conf.d/:ro
+    depends_on:
+      - crm-db
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  crm-nginx:
+    image: nginx:1.17
+    container_name: crm-nginx
+    working_dir: /var/www
+    volumes:
+      - $PWD/:/var/www
+      - $PWD/docker/config/nginx.conf.d/:/etc/nginx/conf.d/:ro
+    depends_on:
+      - crm-app
+    ports:
+      - "127.0.0.1:80:80"
+    networks:
+      - default
+
+  crm-db:
+    image: mysql:8.0.32
+    container_name: crm-db
+    hostname: crm-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345Q
+      - MYSQL_USER=crm_admin
+      - MYSQL_PASSWORD=12345Q
+      - MYSQL_DATABASE=crm-beauty-parlor
+    volumes:
+      - $PWD/docker/config/mysql.conf.d:/etc/mysql/conf.d/:ro
+      - crm_db_data:/var/lib/mysql
+    ports:
+      - "127.0.0.1:3307:3306"
+
+  crm-tests-db:
+    image: mysql:8.0.32
+    container_name: crm-tests-db
+    hostname: crm-tests-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345Q
+      - MYSQL_USER=crm_admin
+      - MYSQL_PASSWORD=12345Q
+      - MYSQL_DATABASE=crm-beauty-parlor
+    volumes:
+      - $PWD/docker/config/mysql.conf.d:/etc/mysql/conf.d/:ro
+      - crm_test_db_data:/var/lib/mysql
+    ports:
+      - "127.0.0.1:13307:3306"
+
+
+volumes:
+  crm_db_data:
+
+  crm_test_db_data:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs

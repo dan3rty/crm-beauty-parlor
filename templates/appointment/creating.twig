@@ -1,0 +1,27 @@
+{% extends 'common/layout.twig' %}
+
+{% block content %}
+    <div class="appointment-info-container">
+        <p class="appointment-container-title">{{ barber.name ~ ' ' ~ barber.surname }}</p>
+        <form class="appointment-form" action="/appointment/add" method="post" id="appointment-form">
+            <input type="text" value="{{ barber.id }}" style="display: none" id="form-barber-id"
+                   name="barber_id">
+            <div class="appointment-form-fields-container">
+                <div class="appointment-form-field">
+                    <label class="form-label" for="form-client">Контакт: </label>
+                    <select name="client_id" id="form-client" class="form-input">
+                        {% for client in clients %}
+                            <option value="{{ client.id }}">{{ client.name ~ ' ' ~ client.surname }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="appointment-form-field">
+                    <label class="form-label" for="form-date">Дата: </label>
+                    <input class="form-input" type="datetime-local" name="date" id="form-date"
+                           value="{{ date ~ ' 00:00' }}"/>
+                </div>
+            </div>
+            <button class="form-input appointment-form-button" type="submit">Сохранить</button>
+        </form>
+    </div>
+{% endblock %}

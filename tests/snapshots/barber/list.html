@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="header-container">
+    <div class="header-logo-container">
+        <a href="/" class="header-logo-link">
+            <img class="header-logo-image" src="/img/header_logo.png" alt="CRM"/>
+        </a>
+    </div>
+    <ul class="navigation-menu">
+        <li>
+            <a class="navigation-menu-link" href="/barber/list">
+                <span>Мастера</span>
+            </a>
+        </li>
+        <li>
+            <a class="navigation-menu-link" href="/client/list">
+                <span>Клиенты</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="main-container">
+        <div class="barbers-container">
+        <div class="barbers-list-title-container">
+            <p class="barbers-title">Мастера:</p>
+            <a href="/barber/new">
+                <img class="button-new" src="/img/add_button.png" alt="new">
+            </a>
+        </div>
+                    <div class="barber-container">
+                <a href="/barber/info/{ barber_id }" class="barber-link">
+                    <p class="barber-container-text">
+                        Имя
+                    </p>
+                    <p class="barber-container-text">
+                        Фамилия
+                    </p>
+                    <p class="barber-container-text">
+                        
+                    </p>
+                </a>
+                <a href="/barber/delete/{ barber_id }">
+                    <img class="barber-button-delete" src="/img/delete_button.png" alt="delete">
+                </a>
+            </div>
+            </div>
+</div>
+</body>
+</html>

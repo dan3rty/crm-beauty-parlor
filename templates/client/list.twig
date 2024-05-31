@@ -1,0 +1,27 @@
+{% extends 'common/layout.twig' %}
+
+{% block content %}
+    <div class="clients-container">
+        <div class="clients-title-container">
+            <p class="clients-title">Клиенты:</p>
+            <a href="/client/new">
+                <img class="button-new" src="/img/add_button.png" alt="new">
+            </a>
+        </div>
+        {% for client in clients %}
+            <div class="client-container">
+                <a href="{{ client.info_url }}" class="client-link">
+                    <p class="client-container-text">
+                        {{ client.name }}
+                    </p>
+                    <p class="barber-container-text">
+                        {{ client.surname }}
+                    </p>
+                    <p class="barber-container-text">
+                        {{ client.date }}
+                    </p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

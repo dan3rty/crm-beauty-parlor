@@ -1,0 +1,51 @@
+index:
+    path: /
+    methods: GET
+    controller: App\Controller\BarberController::index
+
+list_barbers:
+    path: /barber/list
+    controller: App\Controller\BarberController::listBarbers
+
+barber_info:
+    path: /barber/info/{barberId}
+    controller: App\Controller\BarberController::viewBarber
+
+add_barber:
+    path: /barber/new
+    controller: App\Controller\BarberController::addBarber
+
+update_barber:
+    path: /barber/update
+    methods: POST
+    controller: App\Controller\BarberController::updateBarber
+
+delete_barber:
+    path: /barber/delete/{barberId}
+    controller: App\Controller\BarberController::deleteBarber
+
+show_add_appointment_form:
+    path: /appointment/new/{barberId}/{date}
+    controller: App\Controller\AppointmentController::showAddAppointmentForm
+
+add_appointment:
+    path: /appointment/add
+    methods: POST
+    controller: App\Controller\AppointmentController::addAppointment
+
+list_clients:
+    path: /client/list
+    controller: App\Controller\ClientController::listClients
+
+client_info:
+    path: /client/info/{clientId}
+    controller: App\Controller\ClientController::viewClient
+
+update_client:
+    path: /client/update
+    methods: POST
+    controller: App\Controller\ClientController::updateClient
+
+add_client:
+    path: /client/new
+    controller: App\Controller\ClientController::addClient

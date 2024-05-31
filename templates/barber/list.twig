@@ -1,0 +1,30 @@
+{% extends 'common/layout.twig' %}
+
+{% block content %}
+    <div class="barbers-container">
+        <div class="barbers-list-title-container">
+            <p class="barbers-title">Мастера:</p>
+            <a href="/barber/new">
+                <img class="button-new" src="/img/add_button.png" alt="new">
+            </a>
+        </div>
+        {% for barber in barbers %}
+            <div class="barber-container">
+                <a href="{{ barber.info_url }}" class="barber-link">
+                    <p class="barber-container-text">
+                        {{ barber.name }}
+                    </p>
+                    <p class="barber-container-text">
+                        {{ barber.surname }}
+                    </p>
+                    <p class="barber-container-text">
+                        {{ barber.phone }}
+                    </p>
+                </a>
+                <a href="{{ barber.delete_url }}">
+                    <img class="barber-button-delete" src="/img/delete_button.png" alt="delete">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

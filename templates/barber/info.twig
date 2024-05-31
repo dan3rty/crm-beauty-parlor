@@ -1,0 +1,56 @@
+{% extends 'common/layout.twig' %}
+
+{% block content %}
+    <div class="barber-info-container">
+        <p class="barber-container-title">Информация о мастере</p>
+        <form class="form" action="/barber/update" method="post" id="barber-form">
+            <input type="text" value="{{ barber.id }}" style="display: none" id="form-barber-id" name="id">
+            <div class="form-fields-container">
+                <div class="form-field">
+                    <label class="form-label" for="form-barber-name">Имя: </label>
+                    <input class="form-input" type="text" name="name" id="form-barber-name"
+                           value="{{ barber.name }}" required maxlength="50"/>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="form-barber-surname">Фамилия: </label>
+                    <input class="form-input" type="text" name="surname" id="form-barber-surname"
+                           value="{{ barber.surname }}" required maxlength="50"/>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="form-barber-phone">Телефон: </label>
+                    <input class="form-input" type="tel" name="phone" id="form-barber-phone"
+                           value="{{ barber.phone }}" maxlength="50" pattern="+7[0-9]{10}"/>
+                </div>
+            </div>
+            <button class="form-input form-button" type="submit">Сохранить</button>
+        </form>
+    </div>
+    <div class="barber-info-container">
+        <p class="barber-container-title">Ближайшие записи:</p>
+        <div class="barber-dates-container">
+            {% for date in dates %}
+                <div class="barber-date-container">
+                    <p class="barber-date">{{ date.date }}</p>
+                    <a class="barber-date-add-link" href="{{ date.appointment_creating_url }}">
+                        <img src="/img/add_button.png" class="barber-date-add-image">
+                    </a>
+                </div>
+                {% for appointment in appointments %}
+                    {% if appointment.date == date.date_str %}
+                    <div class="appointment-container">
+                        <p class="barber-container-text">
+                            {{ appointment.client_name }}
+                        </p>
+                        <p class="barber-container-text">
+                            {{ appointment.client_surname }}
+                        </p>
+                        <p class="barber-container-text">
+                            {{ appointment.datetime }}
+                        </p>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

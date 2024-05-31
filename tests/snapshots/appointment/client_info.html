@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="header-container">
+    <div class="header-logo-container">
+        <a href="/" class="header-logo-link">
+            <img class="header-logo-image" src="/img/header_logo.png" alt="CRM"/>
+        </a>
+    </div>
+    <ul class="navigation-menu">
+        <li>
+            <a class="navigation-menu-link" href="/barber/list">
+                <span>Мастера</span>
+            </a>
+        </li>
+        <li>
+            <a class="navigation-menu-link" href="/client/list">
+                <span>Клиенты</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="main-container">
+        <div class="barber-info-container">
+        <p class="barber-container-title">Информация о клиенте</p>
+        <form class="form" action="/client/update" method="post" id="barber-form">
+            <input type="text" value="{ client_id }" style="display: none" id="form-barber-id" name="id">
+            <div class="form-fields-container">
+                <div class="form-field">
+                    <label class="form-label" for="form-barber-name">Имя: </label>
+                    <input class="form-input" type="text" name="name" id="form-barber-name"
+                           value="Имя" required maxlength="50"/>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="form-barber-surname">Фамилия: </label>
+                    <input class="form-input" type="text" name="surname" id="form-barber-surname"
+                           value="Фамилия" required maxlength="50"/>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="form-barber-phone">Телефон: </label>
+                    <input class="form-input" type="tel" name="phone" id="form-barber-phone"
+                           value="" maxlength="50" pattern="+7[0-9]{10}"/>
+                </div>
+            </div>
+            <button class="form-input form-button" type="submit">Сохранить</button>
+        </form>
+    </div>
+    <div class="barber-info-container">
+        <p class="barber-container-title">Ближайшие записи:</p>
+        <div class="barber-dates-container">
+                            <div class="appointment-container">
+                    <p class="barber-container-text">
+                        Имя
+                    </p>
+                    <p class="barber-container-text">
+                        Фамилия
+                    </p>
+                    <p class="barber-container-text">
+                        { datetime }
+                    </p>
+                </div>
+                    </div>
+    </div>
+</div>
+</body>
+</html>
